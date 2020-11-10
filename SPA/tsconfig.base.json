@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@spa/something-else": ["libs/something-else/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

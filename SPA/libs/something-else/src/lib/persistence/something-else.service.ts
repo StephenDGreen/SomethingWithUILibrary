@@ -1,5 +1,5 @@
 
- import { Inject, Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
  import { HttpClient, HttpHeaders } from '@angular/common/http';
  import { SomethingElse } from '../domain/models/something-else';
  import { Token } from '../domain/models/token';

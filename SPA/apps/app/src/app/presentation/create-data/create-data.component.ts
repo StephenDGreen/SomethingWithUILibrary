@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SomethingElseService } from '../../persistence/something-else.service'
+import { SomethingElseService } from '../../../../../../libs/something-else/src/lib/persistence/something-else.service';
 
 @Component({
   selector: 'app-create-data',

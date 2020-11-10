@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './presentation/nav-menu/nav-menu.component';
 import { HomeComponent } from './presentation/home/home.component';
 import { CreateDataComponent } from './presentation/create-data/create-data.component';
+import { SomethingElseService  } from '../../../../libs/something-else/src/lib/persistence/something-else.service'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CreateDataComponent } from './presentation/create-data/create-data.comp
       { path: 'create-data', component: CreateDataComponent },
     ])
   ],
-  providers: [],
+  providers: [SomethingElseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

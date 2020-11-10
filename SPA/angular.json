@@ -10,7 +10,7 @@
       },
       "root": "apps/app",
       "sourceRoot": "apps/app/src",
-      "prefix": "spa",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -120,6 +120,36 @@
             "tsConfig": ["apps/app-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/app-e2e/**/*"]
           }
+        }
+      }
+    },
+    "something-else": {
+      "projectType": "library",
+      "root": "libs/something-else",
+      "sourceRoot": "libs/something-else/src",
+      "prefix": "spa",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/something-else/tsconfig.lib.json",
+              "libs/something-else/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/something-else/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/something-else/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }
