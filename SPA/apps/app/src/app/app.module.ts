@@ -1,15 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CreateDataComponent } from './create-data/create-data.component';
+import { NavMenuComponent } from './presentation/nav-menu/nav-menu.component';
+import { HomeComponent } from './presentation/home/home.component';
+import { CreateDataComponent } from './presentation/create-data/create-data.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavMenuComponent, CreateDataComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    NavMenuComponent,
+    HomeComponent,
+    CreateDataComponent
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'create-data', component: CreateDataComponent },
+    ])
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
+
